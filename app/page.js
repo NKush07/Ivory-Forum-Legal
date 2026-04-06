@@ -1,75 +1,95 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { Textarea } from '@/components/ui/textarea'
-import { toast } from 'sonner'
-import { Scale, Briefcase, Users, Award, Phone, Mail, MapPin, CheckCircle2, Star, ArrowRight, Menu, X, Download } from 'lucide-react'
-import Link from 'next/link'
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { toast } from "sonner";
+import {
+  Scale,
+  Briefcase,
+  Binoculars,
+  Users,
+  Award,
+  Phone,
+  Mail,
+  MapPin,
+  CheckCircle2,
+  Star,
+  ArrowRight,
+  Menu,
+  X,
+} from "lucide-react";
+import Link from "next/link";
 
 const App = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: '',
-    caseType: ''
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+    caseType: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
-    })
-  }
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    setIsSubmitting(true)
+    e.preventDefault();
+    setIsSubmitting(true);
 
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
+      const response = await fetch("/api/contact", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
-      })
+      });
 
-      const data = await response.json()
+      const data = await response.json();
 
       if (response.ok) {
-        toast.success('Message sent successfully! We\'ll contact you soon.')
+        toast.success("Message sent successfully! We'll contact you soon.");
         setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          message: '',
-          caseType: ''
-        })
+          name: "",
+          email: "",
+          phone: "",
+          message: "",
+          caseType: "",
+        });
       } else {
-        toast.error(data.error || 'Failed to send message. Please try again.')
+        toast.error(data.error || "Failed to send message. Please try again.");
       }
     } catch (error) {
-      console.error('Error submitting form:', error)
-      toast.error('An error occurred. Please try again later.')
+      console.error("Error submitting form:", error);
+      toast.error("An error occurred. Please try again later.");
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
-  }
+  };
 
   const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId)
+    const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-      setMobileMenuOpen(false)
+      element.scrollIntoView({ behavior: "smooth" });
+      setMobileMenuOpen(false);
     }
-  }
+  };
 
   // ======================================================================================================================================================================
 
@@ -80,18 +100,50 @@ const App = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center space-x-2">
-              <Scale className="h-8 w-8 text-primary" />
-              <span className="text-xl font-bold">Ivory Forum Legal</span>
+              {/* <Scale className="h-8 w-8 text-primary" /> */}
+              <img
+                    src="/images/ico-img.ico"
+                    alt="Meher Parihar"
+                    className="w-8 h-8 rounded-full object-cover"
+                  />
+              <span className="text-xl font-bold">MV & Associates</span>
             </div>
-            
+
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
-              <button onClick={() => scrollToSection('home')} className="text-sm font-medium hover:text-primary transition-colors">Home</button>
-              <button onClick={() => scrollToSection('about')} className="text-sm font-medium hover:text-primary transition-colors">About</button>
-              <button onClick={() => scrollToSection('practice-areas')} className="text-sm font-medium hover:text-primary transition-colors">Practice Areas</button>
-              <button onClick={() => scrollToSection('testimonials')} className="text-sm font-medium hover:text-primary transition-colors">Testimonials</button>
-              <Link href="/blog" className="text-sm font-medium hover:text-primary transition-colors">Blog</Link>
-              <Button onClick={() => scrollToSection('contact')} size="sm">Contact</Button>
+              <button
+                onClick={() => scrollToSection("home")}
+                className="text-sm font-medium hover:text-primary transition-colors"
+              >
+                Home
+              </button>
+              <button
+                onClick={() => scrollToSection("about")}
+                className="text-sm font-medium hover:text-primary transition-colors"
+              >
+                About
+              </button>
+              <button
+                onClick={() => scrollToSection("practice-areas")}
+                className="text-sm font-medium hover:text-primary transition-colors"
+              >
+                Practice Areas
+              </button>
+              <button
+                onClick={() => scrollToSection("partners")}
+                className="text-sm font-medium hover:text-primary transition-colors"
+              >
+                Partners
+              </button>
+              <Link
+                href="/blog"
+                className="text-sm font-medium hover:text-primary transition-colors"
+              >
+                Blog
+              </Link>
+              <Button onClick={() => scrollToSection("contact")} size="sm">
+                Contact
+              </Button>
             </div>
 
             {/* Mobile Menu Button */}
@@ -99,7 +151,11 @@ const App = () => {
               className="md:hidden p-2"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
-              {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {mobileMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
             </button>
           </div>
 
@@ -107,12 +163,43 @@ const App = () => {
           {mobileMenuOpen && (
             <div className="md:hidden py-4 border-t border-border">
               <div className="flex flex-col space-y-4">
-                <button onClick={() => scrollToSection('home')} className="text-sm font-medium hover:text-primary transition-colors text-left">Home</button>
-                <button onClick={() => scrollToSection('about')} className="text-sm font-medium hover:text-primary transition-colors text-left">About</button>
-                <button onClick={() => scrollToSection('practice-areas')} className="text-sm font-medium hover:text-primary transition-colors text-left">Practice Areas</button>
-                <button onClick={() => scrollToSection('testimonials')} className="text-sm font-medium hover:text-primary transition-colors text-left">Testimonials</button>
-                <Link href="/blog" className="text-sm font-medium hover:text-primary transition-colors text-left">Blog</Link>
-                <Button onClick={() => scrollToSection('contact')} size="sm" className="w-full">Contact</Button>
+                <button
+                  onClick={() => scrollToSection("home")}
+                  className="text-sm font-medium hover:text-primary transition-colors text-left"
+                >
+                  Home
+                </button>
+                <button
+                  onClick={() => scrollToSection("about")}
+                  className="text-sm font-medium hover:text-primary transition-colors text-left"
+                >
+                  About
+                </button>
+                <button
+                  onClick={() => scrollToSection("practice-areas")}
+                  className="text-sm font-medium hover:text-primary transition-colors text-left"
+                >
+                  Practice Areas
+                </button>
+                <button
+                  onClick={() => scrollToSection("testimonials")}
+                  className="text-sm font-medium hover:text-primary transition-colors text-left"
+                >
+                  Testimonials
+                </button>
+                <Link
+                  href="/blog"
+                  className="text-sm font-medium hover:text-primary transition-colors text-left"
+                >
+                  Blog
+                </Link>
+                <Button
+                  onClick={() => scrollToSection("contact")}
+                  size="sm"
+                  className="w-full"
+                >
+                  Contact
+                </Button>
               </div>
             </div>
           )}
@@ -120,7 +207,10 @@ const App = () => {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="pt-24 pb-12 md:pt-32 md:pb-20 bg-gradient-to-b from-primary/5 to-background">
+      <section
+        id="home"
+        className="pt-24 pb-12 md:pt-32 md:pb-20 bg-gradient-to-b from-primary/5 to-background"
+      >
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
@@ -128,17 +218,27 @@ const App = () => {
                 20+ Years of Legal Excellence
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                Expert Legal Counsel You Can Trust
+                LEGAL EXPERTISE BUILT ON TRUST AND RESULTS.
               </h1>
               <p className="text-lg text-muted-foreground">
-                Dedicated to protecting your rights and achieving the best outcomes for your case. Personalized attention, proven results.
+                Your case, our priority - Protecting what matters and achieving
+                results you can rely on.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" onClick={() => scrollToSection('contact')} className="group">
+                <Button
+                  size="lg"
+                  onClick={() => scrollToSection("contact")}
+                  className="group"
+                >
                   Schedule Consultation
                   <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
-                <Button size="lg" variant="outline" onClick={() => scrollToSection('about')}>
+                <Button
+                  size="lg"
+                  className="border-white/50 focus:border-primary focus:ring-primary"
+                  variant="outline"
+                  onClick={() => scrollToSection("about")}
+                >
                   Learn More
                 </Button>
               </div>
@@ -149,24 +249,36 @@ const App = () => {
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-primary">20+</div>
-                  <div className="text-sm text-muted-foreground">Years Experience</div>
+                  <div className="text-sm text-muted-foreground">
+                    Years Experience
+                  </div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-primary">98%</div>
-                  <div className="text-sm text-muted-foreground">Success Rate</div>
+                  <div className="text-sm text-muted-foreground">
+                    Success Rate
+                  </div>
                 </div>
               </div>
             </div>
             <div className="relative">
-              <div className="aspect-square rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 p-8 flex items-center justify-center">
-                <Scale className="h-48 w-48 text-primary opacity-20" />
+              <div className="aspect-square rounded-2xl  p-8 flex items-center justify-center"> 
+                {/* bg-gradient-to-br from-primary/20 to-primary/5 */}
+                {/* <Scale className="h-48 w-48 text-primary opacity-20" /> */}
+                <img
+                    src="/images/MV_Logo.png"
+                    alt="Meher Parihar"
+                    className=" object-cover border-2 border-white shadow"
+                  />
               </div>
-              <div className="absolute -bottom-4 -right-4 bg-card border border-border rounded-lg p-4 shadow-lg">
+              <div className="absolute -bottom-[-100] -right-4 bg-card border border-border rounded-lg p-4 shadow-lg border-2 border-red-500">
                 <div className="flex items-center gap-2">
                   <Star className="h-5 w-5 text-yellow-500 fill-yellow-500" />
                   <div>
                     <div className="font-bold">5.0 Rating</div>
-                    <div className="text-xs text-muted-foreground">200+ Reviews</div>
+                    <div className="text-xs text-muted-foreground">
+                      200+ Reviews
+                    </div>
                   </div>
                 </div>
               </div>
@@ -179,12 +291,15 @@ const App = () => {
       <section id="about" className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">About Ivory Forum Legal</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              About MV & Associates
+            </h2>
             <p className="text-lg text-muted-foreground">
-              A passionate advocate with over two decades of experience delivering exceptional legal representation
+              A passionate advocate with over two decades of experience
+              delivering exceptional legal representation
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <Card>
@@ -193,10 +308,18 @@ const App = () => {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <p className="text-muted-foreground">
-                    Ivory Mitchell is a distinguished attorney with over 20 years of experience in civil litigation, family law, and business law. She graduated summa cum laude from Harvard Law School and has since built a reputation for her meticulous attention to detail and unwavering commitment to her clients.
+                    Ivory Mitchell is a distinguished attorney with over 20
+                    years of experience in civil litigation, family law, and
+                    business law. She graduated summa cum laude from Harvard Law
+                    School and has since built a reputation for her meticulous
+                    attention to detail and unwavering commitment to her
+                    clients.
                   </p>
                   <p className="text-muted-foreground">
-                    Her approach combines aggressive advocacy with compassionate counsel, ensuring that each client receives personalized attention and strategic legal solutions tailored to their unique circumstances.
+                    Her approach combines aggressive advocacy with compassionate
+                    counsel, ensuring that each client receives personalized
+                    attention and strategic legal solutions tailored to their
+                    unique circumstances.
                   </p>
                 </CardContent>
               </Card>
@@ -261,14 +384,16 @@ const App = () => {
       <section id="practice-areas" className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Practice Areas</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Range Of Services
+            </h2>
             <p className="text-lg text-muted-foreground">
               Comprehensive legal services across multiple practice areas
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <Card className="hover:shadow-lg transition-shadow">
+            <Card className="h-full hover:shadow-lg transition-shadow">
               <CardHeader>
                 <Briefcase className="h-12 w-12 text-primary mb-4" />
                 <CardTitle>Business Law</CardTitle>
@@ -280,7 +405,7 @@ const App = () => {
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                    <span>Contract drafting and review</span>
+                    <span>Contract drafting and review </span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
@@ -288,7 +413,7 @@ const App = () => {
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                    <span>Partnership agreements</span>
+                    <span>Partnership agreements </span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
@@ -298,7 +423,7 @@ const App = () => {
               </CardContent>
             </Card>
 
-            <Card className="hover:shadow-lg transition-shadow">
+            <Card className="h-full hover:shadow-lg transition-shadow">
               <CardHeader>
                 <Users className="h-12 w-12 text-primary mb-4" />
                 <CardTitle>Family Law</CardTitle>
@@ -306,29 +431,63 @@ const App = () => {
                   Compassionate guidance through family legal matters
                 </CardDescription>
               </CardHeader>
-              <CardContent>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                    <span>Divorce and separation</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                    <span>Child custody and support</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                    <span>Adoption proceedings</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                    <span>Prenuptial agreements</span>
-                  </li>
-                </ul>
+              <CardContent className="space-y-4 text-sm text-muted-foreground">
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
+                  <div>
+                    <div className="font-medium">Legal Consultancy</div>
+                    <ul className="mt-3 space-y-1 pl-5 list-disc">
+                      <li>Divorce (Mutual & Contested)</li>
+                      <li>Maintenance, Alimony & Domestic Violence Matters</li>
+                      <li>Child Custody & Guardianship</li>
+                      <li>Dowry & NRI Matrimonial Disputes</li>
+                      <li>Judicial Separation & Annulment</li>
+                      <li>Legal Notices, Petitions & Settlement Drafting</li>
+                    </ul>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
+                  <div>
+                    <div className="font-medium">
+                      Mediation & Dispute Resolution
+                    </div>
+                    <ul className="mt-3 space-y-1 pl-5 list-disc">
+                      <li>Pre-litigation & Court-Referred Mediation</li>
+                      <li>Marital Reconciliation</li>
+                      <li>Negotiation & Structured Settlements</li>
+                      <li>Online Dispute Resolution</li>
+                    </ul>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
+                  <div>
+                    <div className="font-medium">Legal Advisory</div>
+                    <ul className="mt-3 space-y-1 pl-5 list-disc">
+                      <li>Matrimonial Rights & Property Advisory</li>
+                      <li>Stridhan & Financial Rights Guidance</li>
+                      <li>Strategic Case Planning</li>
+                      <li>Preventive Legal Consultation</li>
+                    </ul>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
+                  <div>
+                    <div className="font-medium">Matrimonial Counseling</div>
+                    <ul className="mt-3 space-y-1 pl-5 list-disc">
+                      <li>Pre-Marital Guidance</li>
+                      <li>Conflict Resolution Sessions</li>
+                      <li>Reconciliation Facilitation</li>
+                      <li>Post-Separation & Co-Parenting Support</li>
+                    </ul>
+                  </div>
+                </div>
               </CardContent>
             </Card>
 
-            <Card className="hover:shadow-lg transition-shadow">
+            <Card className="h-full hover:shadow-lg transition-shadow">
               <CardHeader>
                 <Scale className="h-12 w-12 text-primary mb-4" />
                 <CardTitle>Civil Litigation</CardTitle>
@@ -358,7 +517,7 @@ const App = () => {
               </CardContent>
             </Card>
 
-            <Card className="hover:shadow-lg transition-shadow">
+            <Card className="h-full hover:shadow-lg transition-shadow">
               <CardHeader>
                 <Award className="h-12 w-12 text-primary mb-4" />
                 <CardTitle>Estate Planning</CardTitle>
@@ -388,7 +547,7 @@ const App = () => {
               </CardContent>
             </Card>
 
-            <Card className="hover:shadow-lg transition-shadow">
+            <Card className="h-full hover:shadow-lg transition-shadow">
               <CardHeader>
                 <Briefcase className="h-12 w-12 text-primary mb-4" />
                 <CardTitle>Real Estate Law</CardTitle>
@@ -418,7 +577,7 @@ const App = () => {
               </CardContent>
             </Card>
 
-            <Card className="hover:shadow-lg transition-shadow">
+            <Card className="h-full hover:shadow-lg transition-shadow">
               <CardHeader>
                 <Scale className="h-12 w-12 text-primary mb-4" />
                 <CardTitle>Criminal Defense</CardTitle>
@@ -447,12 +606,102 @@ const App = () => {
                 </ul>
               </CardContent>
             </Card>
+
+            <Card className="h-full hover:shadow-lg transition-shadow">
+              <CardHeader>
+                <Binoculars className="h-12 w-12 text-primary mb-4" />
+                <CardTitle>Investigation Services</CardTitle>
+                <CardDescription>
+                  Background & due diligence checks
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                    <span>Corporate and fraud investigations</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                    <span>Surveillance & evidence gathering</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                    <span>Asset tracing & financial inquiries</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                    <span>Litigation support & witness verification</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                    <span>Matrimonial and cyber investigations</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Partners */}
+      <section id="partners" className="py-20 bg-muted/30">
+        <div className="container mx-auto px-4 ">
+          <div className="max-w-3xl mx-auto text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Partners</h2>
+            <p className="text-lg text-muted-foreground">
+              Your Legal Partners in Every Step
+            </p>
+          </div>
+
+          <div className="max-w-5xl mx-auto px-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 justify-center">
+              {/* Card 1 */}
+              <Card className="w-full max-w-md mx-auto rounded-xl shadow-md hover:shadow-lg transition">
+                <CardContent className="p-6 flex items-center gap-5">
+                  <img
+                    src="/images/adv_profile.jpg"
+                    alt="Vijaishree Tiwari"
+                    className="w-20 h-20 rounded-full object-cover border-2 border-white shadow"
+                  />
+
+                  <div>
+                    <h3 className="text-lg font-semibold leading-tight">
+                      Adv. Vijaishree Tiwari
+                    </h3>
+                    <p className="text-sm text-muted-foreground mt-1">
+                      Senior Advocate
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Card 2 */}
+              <Card className="w-full max-w-md mx-auto rounded-xl shadow-md hover:shadow-lg transition">
+                <CardContent className="p-6 flex items-center gap-5">
+                  <img
+                    src="/images/adv_profile.jpg"
+                    alt="Meher Parihar"
+                    className="w-20 h-20 rounded-full object-cover border-2 border-white shadow"
+                  />
+
+                  <div>
+                    <h3 className="text-lg font-semibold leading-tight">
+                      Adv. Meher Parihar
+                    </h3>
+                    <p className="text-sm text-muted-foreground mt-1">
+                      Senior Advocate
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Testimonials */}
-      <section id="testimonials" className="py-20 bg-muted/30">
+      {/* <section id="testimonials" className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Client Testimonials</h2>
@@ -517,15 +766,17 @@ const App = () => {
             </Card>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Contact Section */}
       <section id="contact" className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Get In Touch</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Connect With Us
+            </h2>
             <p className="text-lg text-muted-foreground">
-              Schedule a consultation today and take the first step toward resolving your legal matter
+              Book your consultation and begin your path to a legal solution.
             </p>
           </div>
 
@@ -534,31 +785,45 @@ const App = () => {
               <Card>
                 <CardHeader>
                   <CardTitle>Contact Information</CardTitle>
-                  <CardDescription>Reach out to us through any of these channels</CardDescription>
+                  <CardDescription>
+                    Reach out to us through any of these channels
+                  </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="flex items-start gap-3">
                     <Phone className="h-5 w-5 text-primary mt-1" />
                     <div>
                       <div className="font-medium">Phone</div>
-                      <div className="text-muted-foreground">(555) 123-4567</div>
-                      <div className="text-sm text-muted-foreground">Mon-Fri: 9AM - 6PM</div>
+                      <div className="text-muted-foreground">
+                        +91 8602184060
+                      </div>
+                      <div className="text-sm text-muted-foreground">
+                        Mon-Fri: 9AM - 6PM
+                      </div>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <Mail className="h-5 w-5 text-primary mt-1" />
                     <div>
                       <div className="font-medium">Email</div>
-                      <div className="text-muted-foreground">Ivory.mitchell@lawfirm.com</div>
-                      <div className="text-sm text-muted-foreground">We'll respond within 24 hours</div>
+                      <div className="text-muted-foreground">
+                        {" "}
+                        mv.associates.legal@gmail.com
+                      </div>
+                      {/* <div className="text-sm text-muted-foreground">We'll respond within 24 hours</div> */}
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <MapPin className="h-5 w-5 text-primary mt-1" />
                     <div>
                       <div className="font-medium">Office Address</div>
-                      <div className="text-muted-foreground">123 Legal Street, Suite 456</div>
-                      <div className="text-muted-foreground">Downtown, ST 12345</div>
+                      <div className="text-muted-foreground">
+                        {" "}
+                        323 B - Rajul landmark, Napier Town,
+                      </div>
+                      <div className="text-muted-foreground">
+                        Jabalpur, Madhya Pradesh, 482001
+                      </div>
                     </div>
                   </div>
                 </CardContent>
@@ -571,18 +836,16 @@ const App = () => {
                 <CardContent className="space-y-2">
                   <div className="flex justify-between">
                     <span>Monday - Friday</span>
-                    <span className="font-medium">9:00 AM - 6:00 PM</span>
+                    <span className="font-medium">10:00 AM - 9:00 PM</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>Saturday</span>
-                    <span className="font-medium">10:00 AM - 2:00 PM</span>
+                    <span>Saturday - Sunday</span>
+                    <span className="font-medium">12:00 AM - 6:00 PM</span>
                   </div>
-                  <div className="flex justify-between">
-                    <span>Sunday</span>
-                    <span className="font-medium">Closed</span>
-                  </div>
-                  <div className="pt-4 border-t border-primary-foreground/20">
-                    <p className="text-sm">Emergency consultations available by appointment</p>
+                  <div className="pt-4 border-t border-primary-foreground/80">
+                    <p className="text-sm">
+                      Emergency consultations available by appointment
+                    </p>
                   </div>
                 </CardContent>
               </Card>
@@ -591,7 +854,9 @@ const App = () => {
             <Card>
               <CardHeader>
                 <CardTitle>Send Us a Message</CardTitle>
-                <CardDescription>Fill out the form and we'll get back to you shortly</CardDescription>
+                <CardDescription>
+                  Fill out the form and we'll get back to you shortly
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-4">
@@ -604,6 +869,7 @@ const App = () => {
                       value={formData.name}
                       onChange={handleChange}
                       required
+                      className="border-white/50 focus:border-primary focus:ring-primary"
                     />
                   </div>
                   <div className="space-y-2">
@@ -616,6 +882,7 @@ const App = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
+                      className="border-white/50 focus:border-primary focus:ring-primary"
                     />
                   </div>
                   <div className="space-y-2">
@@ -627,6 +894,7 @@ const App = () => {
                       placeholder="(555) 123-4567"
                       value={formData.phone}
                       onChange={handleChange}
+                      className="border-white/50 focus:border-primary focus:ring-primary"
                     />
                   </div>
                   <div className="space-y-2">
@@ -648,7 +916,7 @@ const App = () => {
                       <option value="other">Other</option>
                     </select>
                   </div>
-                  <div className="space-y-2" >
+                  <div className="space-y-2">
                     <Label htmlFor="message">Message *</Label>
                     <Textarea
                       id="message"
@@ -658,10 +926,15 @@ const App = () => {
                       value={formData.message}
                       onChange={handleChange}
                       required
+                      className="border-white/50 focus:border-primary focus:ring-primary"
                     />
                   </div>
-                  <Button type="submit" className="w-full" disabled={isSubmitting}>
-                    {isSubmitting ? 'Sending...' : 'Send Message'}
+                  <Button
+                    type="submit"
+                    className="w-full"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
                 </form>
               </CardContent>
@@ -677,20 +950,56 @@ const App = () => {
             <div className="space-y-4">
               <div className="flex items-center space-x-2">
                 <Scale className="h-6 w-6 text-primary" />
-                <span className="font-bold">Ivory Forum Legal</span>
+                <span className="font-bold">MV & Associates</span>
               </div>
               <p className="text-sm text-muted-foreground">
-                Providing exceptional legal services with integrity, dedication, and results.
+                Providing exceptional legal services with integrity, dedication,
+                and results.
               </p>
             </div>
             <div>
               <h3 className="font-semibold mb-4">Quick Links</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><button onClick={() => scrollToSection('home')} className="hover:text-primary transition-colors">Home</button></li>
-                <li><button onClick={() => scrollToSection('about')} className="hover:text-primary transition-colors">About</button></li>
-                <li><button onClick={() => scrollToSection('practice-areas')} className="hover:text-primary transition-colors">Practice Areas</button></li>
-                <li><Link href="/blog" className="hover:text-primary transition-colors">Blog</Link></li>
-                <li><button onClick={() => scrollToSection('contact')} className="hover:text-primary transition-colors">Contact</button></li>
+                <li>
+                  <button
+                    onClick={() => scrollToSection("home")}
+                    className="hover:text-primary transition-colors"
+                  >
+                    Home
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => scrollToSection("about")}
+                    className="hover:text-primary transition-colors"
+                  >
+                    About
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => scrollToSection("practice-areas")}
+                    className="hover:text-primary transition-colors"
+                  >
+                    Practice Areas
+                  </button>
+                </li>
+                <li>
+                  <Link
+                    href="/blog"
+                    className="hover:text-primary transition-colors"
+                  >
+                    Blog
+                  </Link>
+                </li>
+                <li>
+                  <button
+                    onClick={() => scrollToSection("contact")}
+                    className="hover:text-primary transition-colors"
+                  >
+                    Contact
+                  </button>
+                </li>
               </ul>
             </div>
             <div>
@@ -705,24 +1014,26 @@ const App = () => {
             <div>
               <h3 className="font-semibold mb-4">Contact</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>(555) 123-4567</li>
-                <li>Ivory.mitchell@lawfirm.com</li>
-                <li>123 Legal Street, Suite 456</li>
-                <li>Downtown, ST 12345</li>
+                <li>Phone no. : +91 8602184060</li>
+                <li>Email : mv.associates.legal@gmail.com</li>
+                <li>Address : </li>
+                <li>323 B - Rajul landmark, Napier Town,</li>
+                <li>Jabalpur, Madhya Pradesh, 482001</li>
               </ul>
             </div>
           </div>
           <div className="mt-12 pt-8 border-t border-border">
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
               <p className="text-center md:text-left text-sm text-muted-foreground">
-                © 2024 Ivory Forum Legal. All rights reserved. | Attorney Advertising
+                © 2024 MV & Associates. All rights reserved. | Attorney
+                Advertising
               </p>
             </div>
           </div>
         </div>
       </footer>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;

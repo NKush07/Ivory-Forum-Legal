@@ -43,7 +43,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$sonner$2f$di
 ;
 ;
 const metadata = {
-    title: 'Ivory Forum Legal - Attorney at Law',
+    title: 'MV & Associates - Attorney at Law',
     description: 'Expert legal counsel with over 20 years of experience in business law, family law, civil litigation, and more. Dedicated to protecting your rights and achieving the best outcomes.',
     keywords: 'attorney, lawyer, legal services, business law, family law, civil litigation, estate planning, real estate law, criminal defense'
 };

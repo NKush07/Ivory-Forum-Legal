@@ -7,7 +7,7 @@ module.exports = mod;
 }),
 "[project]/app/icon.svg (static in ecmascript, tag client)", ((__turbopack_context__) => {
 
-__turbopack_context__.v("/_next/static/media/icon.0-b9ieryyknwb.svg" + (globalThis["NEXT_CLIENT_ASSET_SUFFIX"] || ''));}),
+__turbopack_context__.v("/_next/static/media/icon.0_th.wf4gz4q_.svg" + (globalThis["NEXT_CLIENT_ASSET_SUFFIX"] || ''));}),
 "[project]/app/icon.svg.mjs { IMAGE => \"[project]/app/icon.svg (static in ecmascript, tag client)\" } [app-rsc] (structured image object, ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
@@ -19,8 +19,8 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$icon$2e$svg__$28$stat
 ;
 const __TURBOPACK__default__export__ = {
     src: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$icon$2e$svg__$28$static__in__ecmascript$2c$__tag__client$29$__["default"],
-    width: 24,
-    height: 24
+    width: 480,
+    height: 520
 };
 }),
 "[project]/app/blog/page.js [app-rsc] (client reference proxy) <module evaluation>", ((__turbopack_context__) => {

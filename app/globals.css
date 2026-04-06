@@ -56,20 +56,25 @@ code {
 }
 
 
+/* --background: 205 74% 28%; #1E698D blue */
+/* --card: 205 74% 38%; slightly lighter blue card */
+/* --primary: 43 88% 56%; gold highlight */
+/* --muted: 205 68% 40%; */
+
 
 @layer base {
   :root {
-        --background: 205 74% 28%; /* #1E698D blue */
+        --background: 230, 77%, 22%;
         --foreground: 0 0% 100%; /* white text */
-        --card: 205 74% 38%; /* slightly lighter blue card */
+        --card: 232 72% 37%;
         --card-foreground: 0 0% 100%;
         --popover: 205 74% 38%;
         --popover-foreground: 0 0% 100%;
-        --primary: 43 88% 56%; /* gold highlight */
+        --primary: 39 86% 72%; /* gold highlight */
         --primary-foreground: 205 74% 28%;
         --secondary: 43 88% 56%;
         --secondary-foreground: 205 74% 28%;
-        --muted: 205 68% 40%;
+        --muted: 231 78% 50%;
         --muted-foreground: 0 0% 100%;
         --accent: 43 88% 56%;
         --accent-foreground: 205 74% 28%;
