@@ -263,15 +263,26 @@ const App = () => {
             </div>
             <div className="relative">
               <div className="aspect-square rounded-2xl p-4 sm:p-6 md:p-8 flex items-center justify-center">
-                {/* bg-gradient-to-br from-primary/20 to-primary/5 */}
-                {/* <Scale className="h-48 w-48 text-primary opacity-20" /> */}
                 <img
                   src="/images/MV_Logo.png"
                   alt="Meher Parihar"
                   className=" object-cover border-2 border-yellow-100 shadow"
                 />
               </div>
-              <div className="absolute -bottom-[-100] -right-4 bg-card border border-border rounded-lg p-4 shadow-lg border-2 border-red-500">
+              {/* Rating on mobile - below image */}
+              <div className="md:hidden mx-6 bg-card border border-border rounded-lg p-4 shadow-lg mx-auto max-w-full">
+                <div className="flex items-center gap-2 justify-center">
+                  <Star className="h-5 w-5 text-yellow-500 fill-yellow-500" />
+                  <div className="text-center">
+                    <div className="font-bold">5.0 Rating</div>
+                    <div className="text-xs text-muted-foreground">
+                      200+ Reviews
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {/* Rating on desktop - overlay */}
+              <div className="hidden md:block absolute -bottom-[-100] -right-4 bg-card border border-border rounded-lg p-4 shadow-lg">
                 <div className="flex items-center gap-2">
                   <Star className="h-5 w-5 text-yellow-500 fill-yellow-500" />
                   <div>
