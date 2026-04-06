@@ -102,10 +102,10 @@ const App = () => {
             <div className="flex items-center space-x-2">
               {/* <Scale className="h-8 w-8 text-primary" /> */}
               <img
-                    src="/images/ico-img.ico"
-                    alt="Meher Parihar"
-                    className="w-8 h-8 rounded-full object-cover"
-                  />
+                src="/images/mv-logo.png" 
+                alt="MV Logo"
+                className="w-8 h-8 object-contain"
+              />
               <span className="text-xl font-bold">MV & Associates</span>
             </div>
 
@@ -209,7 +209,7 @@ const App = () => {
       {/* Hero Section */}
       <section
         id="home"
-        className="pt-24 pb-12 md:pt-32 md:pb-20 bg-gradient-to-b from-primary/5 to-background"
+        className="pt-20 pb-12 md:pt-20 md:pb-20 bg-gradient-to-b from-primary/5 to-background"
       >
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -217,8 +217,8 @@ const App = () => {
               <div className="inline-block px-4 py-2 bg-primary/10 rounded-full text-sm font-medium text-primary">
                 20+ Years of Legal Excellence
               </div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                LEGAL EXPERTISE BUILT ON TRUST AND RESULTS.
+              <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold leading-tight">
+                Legal Expertise Built On Trust And Results.
               </h1>
               <p className="text-lg text-muted-foreground">
                 Your case, our priority - Protecting what matters and achieving
@@ -262,14 +262,14 @@ const App = () => {
               </div>
             </div>
             <div className="relative">
-              <div className="aspect-square rounded-2xl  p-8 flex items-center justify-center"> 
+              <div className="aspect-square rounded-2xl p-4 sm:p-6 md:p-8 flex items-center justify-center">
                 {/* bg-gradient-to-br from-primary/20 to-primary/5 */}
                 {/* <Scale className="h-48 w-48 text-primary opacity-20" /> */}
                 <img
-                    src="/images/MV_Logo.png"
-                    alt="Meher Parihar"
-                    className=" object-cover border-2 border-white shadow"
-                  />
+                  src="/images/MV_Logo.png"
+                  alt="Meher Parihar"
+                  className=" object-cover border-2 border-yellow-100 shadow"
+                />
               </div>
               <div className="absolute -bottom-[-100] -right-4 bg-card border border-border rounded-lg p-4 shadow-lg border-2 border-red-500">
                 <div className="flex items-center gap-2">
