@@ -100,9 +100,8 @@ const App = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center space-x-2">
-              {/* <Scale className="h-8 w-8 text-primary" /> */}
               <img
-                src="/images/mv-logo.png" 
+                src="/images/mv-logo.png"
                 alt="MV Logo"
                 className="w-8 h-8 object-contain"
               />
@@ -116,12 +115,6 @@ const App = () => {
                 className="text-sm font-medium hover:text-primary transition-colors"
               >
                 Home
-              </button>
-              <button
-                onClick={() => scrollToSection("about")}
-                className="text-sm font-medium hover:text-primary transition-colors"
-              >
-                About
               </button>
               <button
                 onClick={() => scrollToSection("practice-areas")}
@@ -170,22 +163,16 @@ const App = () => {
                   Home
                 </button>
                 <button
-                  onClick={() => scrollToSection("about")}
-                  className="text-sm font-medium hover:text-primary transition-colors text-left"
-                >
-                  About
-                </button>
-                <button
                   onClick={() => scrollToSection("practice-areas")}
                   className="text-sm font-medium hover:text-primary transition-colors text-left"
                 >
                   Practice Areas
                 </button>
                 <button
-                  onClick={() => scrollToSection("testimonials")}
+                  onClick={() => scrollToSection("partners")}
                   className="text-sm font-medium hover:text-primary transition-colors text-left"
                 >
-                  Testimonials
+                  Partners
                 </button>
                 <Link
                   href="/blog"
@@ -214,9 +201,6 @@ const App = () => {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <div className="inline-block px-4 py-2 bg-primary/10 rounded-full text-sm font-medium text-primary">
-                20+ Years of Legal Excellence
-              </div>
               <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold leading-tight">
                 Legal Expertise Built On Trust And Results.
               </h1>
@@ -242,30 +226,12 @@ const App = () => {
                   Learn More
                 </Button>
               </div>
-              <div className="flex items-center gap-8 pt-4">
-                <div>
-                  <div className="text-3xl font-bold text-primary">500+</div>
-                  <div className="text-sm text-muted-foreground">Cases Won</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-bold text-primary">20+</div>
-                  <div className="text-sm text-muted-foreground">
-                    Years Experience
-                  </div>
-                </div>
-                <div>
-                  <div className="text-3xl font-bold text-primary">98%</div>
-                  <div className="text-sm text-muted-foreground">
-                    Success Rate
-                  </div>
-                </div>
-              </div>
             </div>
             <div className="relative">
               <div className="aspect-square rounded-2xl p-4 sm:p-6 md:p-8 flex items-center justify-center">
                 <img
                   src="/images/MV_Logo.png"
-                  alt="Meher Parihar"
+                  alt="logo"
                   className=" object-cover border-2 border-yellow-100 shadow"
                 />
               </div>
@@ -298,101 +264,8 @@ const App = () => {
         </div>
       </section>
 
-      {/* About Section */}
-      <section id="about" className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              About MV & Associates
-            </h2>
-            <p className="text-lg text-muted-foreground">
-              A passionate advocate with over two decades of experience
-              delivering exceptional legal representation
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <Card>
-                <CardHeader>
-                  <CardTitle>Professional Background</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <p className="text-muted-foreground">
-                    Ivory Mitchell is a distinguished attorney with over 20
-                    years of experience in civil litigation, family law, and
-                    business law. She graduated summa cum laude from Harvard Law
-                    School and has since built a reputation for her meticulous
-                    attention to detail and unwavering commitment to her
-                    clients.
-                  </p>
-                  <p className="text-muted-foreground">
-                    Her approach combines aggressive advocacy with compassionate
-                    counsel, ensuring that each client receives personalized
-                    attention and strategic legal solutions tailored to their
-                    unique circumstances.
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-
-            <div className="space-y-4">
-              <Card>
-                <CardHeader>
-                  <div className="flex items-center gap-3">
-                    <Award className="h-8 w-8 text-primary" />
-                    <div>
-                      <CardTitle>Education</CardTitle>
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2 text-muted-foreground">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span>J.D., Harvard Law School (Summa Cum Laude)</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span>B.A. Political Science, Yale University</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <div className="flex items-center gap-3">
-                    <Award className="h-8 w-8 text-primary" />
-                    <div>
-                      <CardTitle>Certifications & Memberships</CardTitle>
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2 text-muted-foreground">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span>State Bar Association - Certified Specialist</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span>American Bar Association Member</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span>National Association of Trial Lawyers</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Practice Areas */}
-      <section id="practice-areas" className="py-20">
+      <section id="practice-areas" className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -656,7 +529,7 @@ const App = () => {
       </section>
 
       {/* Partners */}
-      <section id="partners" className="py-20 bg-muted/30">
+      <section id="partners" className="py-20">
         <div className="container mx-auto px-4 ">
           <div className="max-w-3xl mx-auto text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Partners</h2>
@@ -665,45 +538,23 @@ const App = () => {
             </p>
           </div>
 
-          <div className="max-w-5xl mx-auto px-4">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 justify-center">
+          <div className="max-w-5xl mx-auto px-4 ">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 ">
               {/* Card 1 */}
               <Card className="w-full max-w-md mx-auto rounded-xl shadow-md hover:shadow-lg transition">
-                <CardContent className="p-6 flex items-center gap-5">
-                  <img
-                    src="/images/adv_profile.jpg"
-                    alt="Vijaishree Tiwari"
-                    className="w-20 h-20 rounded-full object-cover border-2 border-white shadow"
-                  />
-
-                  <div>
-                    <h3 className="text-lg font-semibold leading-tight">
-                      Adv. Vijaishree Tiwari
-                    </h3>
-                    <p className="text-sm text-muted-foreground mt-1">
-                      Senior Advocate
-                    </p>
-                  </div>
+                <CardContent className="p-6 flex items-center justify-center text-center">
+                  <h3 className="text-base sm:text-lg font-semibold leading-tight">
+                    Vijaishree Tiwari
+                  </h3>
                 </CardContent>
               </Card>
 
               {/* Card 2 */}
-              <Card className="w-full max-w-md mx-auto rounded-xl shadow-md hover:shadow-lg transition">
-                <CardContent className="p-6 flex items-center gap-5">
-                  <img
-                    src="/images/adv_profile.jpg"
-                    alt="Meher Parihar"
-                    className="w-20 h-20 rounded-full object-cover border-2 border-white shadow"
-                  />
-
-                  <div>
-                    <h3 className="text-lg font-semibold leading-tight">
-                      Adv. Meher Parihar
-                    </h3>
-                    <p className="text-sm text-muted-foreground mt-1">
-                      Senior Advocate
-                    </p>
-                  </div>
+              <Card className="w-full max-w-md mx-auto rounded-xl shadow-md hover:shadow-lg transition ">
+                <CardContent className="p-6 flex items-center justify-center text-center ">
+                  <h3 className="text-base sm:text-lg font-semibold leading-tight">
+                    Meher Parihar
+                  </h3>
                 </CardContent>
               </Card>
             </div>
@@ -711,76 +562,8 @@ const App = () => {
         </div>
       </section>
 
-      {/* Testimonials */}
-      {/* <section id="testimonials" className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Client Testimonials</h2>
-            <p className="text-lg text-muted-foreground">
-              Don't just take our word for it - hear from our satisfied clients
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            <Card>
-              <CardHeader>
-                <div className="flex gap-1 mb-2">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 text-yellow-500 fill-yellow-500" />
-                  ))}
-                </div>
-                <CardTitle className="text-lg">Exceptional Service</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground mb-4">
-                  "Ivory handled my divorce case with incredible professionalism and compassion. She fought tirelessly for my children's best interests and achieved an outcome that exceeded my expectations."
-                </p>
-                <div className="font-medium">- Jennifer R.</div>
-                <div className="text-sm text-muted-foreground">Family Law Client</div>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <div className="flex gap-1 mb-2">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 text-yellow-500 fill-yellow-500" />
-                  ))}
-                </div>
-                <CardTitle className="text-lg">Outstanding Results</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground mb-4">
-                  "As a small business owner, I needed expert legal guidance for contract negotiations. Ivory's attention to detail and strategic thinking saved me from a potentially costly mistake."
-                </p>
-                <div className="font-medium">- Michael T.</div>
-                <div className="text-sm text-muted-foreground">Business Law Client</div>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <div className="flex gap-1 mb-2">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 text-yellow-500 fill-yellow-500" />
-                  ))}
-                </div>
-                <CardTitle className="text-lg">Highly Recommended</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground mb-4">
-                  "I was involved in a serious personal injury case and Ivory's aggressive advocacy secured a settlement that will provide for my medical care for years to come. I can't thank her enough."
-                </p>
-                <div className="font-medium">- David K.</div>
-                <div className="text-sm text-muted-foreground">Civil Litigation Client</div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section> */}
-
       {/* Contact Section */}
-      <section id="contact" className="py-20">
+      <section id="contact" className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -830,10 +613,10 @@ const App = () => {
                       <div className="font-medium">Office Address</div>
                       <div className="text-muted-foreground">
                         {" "}
-                        323 B - Rajul landmark, Napier Town,
+                        323 B - Rajul landmark, Napier Town, Jabalpur,
                       </div>
                       <div className="text-muted-foreground">
-                        Jabalpur, Madhya Pradesh, 482001
+                        Madhya Pradesh, 482001
                       </div>
                     </div>
                   </div>
@@ -960,7 +743,11 @@ const App = () => {
           <div className="grid md:grid-cols-4 gap-8">
             <div className="space-y-4">
               <div className="flex items-center space-x-2">
-                <Scale className="h-6 w-6 text-primary" />
+                <img
+                  src="/images/mv-logo.png"
+                  alt="MV Logo"
+                  className="w-8 h-8 object-contain"
+                />
                 <span className="font-bold">MV & Associates</span>
               </div>
               <p className="text-sm text-muted-foreground">
@@ -977,14 +764,6 @@ const App = () => {
                     className="hover:text-primary transition-colors"
                   >
                     Home
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => scrollToSection("about")}
-                    className="hover:text-primary transition-colors"
-                  >
-                    About
                   </button>
                 </li>
                 <li>
@@ -1020,6 +799,9 @@ const App = () => {
                 <li>Family Law</li>
                 <li>Civil Litigation</li>
                 <li>Estate Planning</li>
+                <li>Real Estate Law</li>
+                <li>Criminal Defence</li>
+                <li>Investigation Services</li>
               </ul>
             </div>
             <div>
@@ -1027,16 +809,17 @@ const App = () => {
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li>Phone no. : +91 8602184060</li>
                 <li>Email : mv.associates.legal@gmail.com</li>
-                <li>Address : </li>
-                <li>323 B - Rajul landmark, Napier Town,</li>
-                <li>Jabalpur, Madhya Pradesh, 482001</li>
+                <li>
+                  Address : 323 B - Rajul landmark, Napier Town, Jabalpur,
+                  Madhya Pradesh, 482001
+                </li>
               </ul>
             </div>
           </div>
           <div className="mt-12 pt-8 border-t border-border">
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
               <p className="text-center md:text-left text-sm text-muted-foreground">
-                © 2024 MV & Associates. All rights reserved. | Attorney
+                © 2026 MV & Associates. All rights reserved. | Attorney
                 Advertising
               </p>
             </div>
