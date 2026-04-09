@@ -117,10 +117,10 @@ const App = () => {
                 Home
               </button>
               <button
-                onClick={() => scrollToSection("practice-areas")}
+                onClick={() => scrollToSection("range-of-services")}
                 className="text-sm font-medium hover:text-primary transition-colors"
               >
-                Practice Areas
+                Range Of Services
               </button>
               <button
                 onClick={() => scrollToSection("partners")}
@@ -163,10 +163,10 @@ const App = () => {
                   Home
                 </button>
                 <button
-                  onClick={() => scrollToSection("practice-areas")}
+                  onClick={() => scrollToSection("range-of-services")}
                   className="text-sm font-medium hover:text-primary transition-colors text-left"
                 >
-                  Practice Areas
+                  Range Of Services
                 </button>
                 <button
                   onClick={() => scrollToSection("partners")}
@@ -235,44 +235,20 @@ const App = () => {
                   className=" object-cover border-2 border-yellow-100 shadow"
                 />
               </div>
-              {/* Rating on mobile - below image */}
-              <div className="md:hidden mx-6 bg-card border border-border rounded-lg p-4 shadow-lg mx-auto max-w-full">
-                <div className="flex items-center gap-2 justify-center">
-                  <Star className="h-5 w-5 text-yellow-500 fill-yellow-500" />
-                  <div className="text-center">
-                    <div className="font-bold">5.0 Rating</div>
-                    <div className="text-xs text-muted-foreground">
-                      200+ Reviews
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {/* Rating on desktop - overlay */}
-              <div className="hidden md:block absolute -bottom-[-100] -right-4 bg-card border border-border rounded-lg p-4 shadow-lg">
-                <div className="flex items-center gap-2">
-                  <Star className="h-5 w-5 text-yellow-500 fill-yellow-500" />
-                  <div>
-                    <div className="font-bold">5.0 Rating</div>
-                    <div className="text-xs text-muted-foreground">
-                      200+ Reviews
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Practice Areas */}
-      <section id="practice-areas" className="py-20 bg-muted/30">
+      {/* Range Of Services */}
+      <section id="range-of-services" className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Range Of Services
             </h2>
             <p className="text-lg text-muted-foreground">
-              Comprehensive legal services across multiple practice areas
+              Comprehensive legal services across multiple range Of services to meet your needs
             </p>
           </div>
 
@@ -604,7 +580,6 @@ const App = () => {
                         {" "}
                         mv.associates.legal@gmail.com
                       </div>
-                      {/* <div className="text-sm text-muted-foreground">We'll respond within 24 hours</div> */}
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
@@ -613,10 +588,7 @@ const App = () => {
                       <div className="font-medium">Office Address</div>
                       <div className="text-muted-foreground">
                         {" "}
-                        323 B - Rajul landmark, Napier Town, Jabalpur,
-                      </div>
-                      <div className="text-muted-foreground">
-                        Madhya Pradesh, 482001
+                        323 B - Rajul landmark, Napier Town, Jabalpur, Madhya Pradesh, 482001
                       </div>
                     </div>
                   </div>
@@ -634,7 +606,7 @@ const App = () => {
                   </div>
                   <div className="flex justify-between">
                     <span>Saturday - Sunday</span>
-                    <span className="font-medium">12:00 AM - 6:00 PM</span>
+                    <span className="font-medium">12:00 PM - 6:00 PM</span>
                   </div>
                   <div className="pt-4 border-t border-primary-foreground/80">
                     <p className="text-sm">
@@ -768,10 +740,10 @@ const App = () => {
                 </li>
                 <li>
                   <button
-                    onClick={() => scrollToSection("practice-areas")}
+                    onClick={() => scrollToSection("range-of-services")}
                     className="hover:text-primary transition-colors"
                   >
-                    Practice Areas
+                    Range Of Services
                   </button>
                 </li>
                 <li>
@@ -793,7 +765,7 @@ const App = () => {
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold mb-4">Practice Areas</h3>
+              <h3 className="font-semibold mb-4">Range Of Services</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li>Business Law</li>
                 <li>Family Law</li>
@@ -810,8 +782,7 @@ const App = () => {
                 <li>Phone no. : +91 8602184060</li>
                 <li>Email : mv.associates.legal@gmail.com</li>
                 <li>
-                  Address : 323 B - Rajul landmark, Napier Town, Jabalpur,
-                  Madhya Pradesh, 482001
+                  Address : 323 B - Rajul landmark, Napier Town, Jabalpur, Madhya Pradesh, 482001
                 </li>
               </ul>
             </div>

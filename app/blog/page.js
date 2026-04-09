@@ -267,7 +267,7 @@ const BlogPage = () => {
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold mb-4">Practice Areas</h3>
+              <h3 className="font-semibold mb-4">Range Of Services</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li>Business Law</li>
                 <li>Family Law</li>
@@ -284,8 +284,7 @@ const BlogPage = () => {
                 <li>Phone : +91 8602184060</li>
                 <li>Email : mv.associates.legal@gmail.com</li>
                 <li>
-                  Address : 323 B - Rajul landmark, Napier Town, Jabalpur,
-                  Madhya Pradesh, 482001
+                  Address : 323 B - Rajul landmark, Napier Town, Jabalpur, Madhya Pradesh, 482001
                 </li>
               </ul>
             </div>
