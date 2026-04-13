@@ -259,7 +259,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$blogData$2e$js__$5b$a
 ;
 function getMimeText(bodyParsed) {
     const { name, email, phone, message, caseType } = bodyParsed;
-    return `New contact form submission:\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone || 'N/A'}\nCase Type: ${caseType || 'N/A'}\n\nMessage:\n${message}\n`;
+    return `New contact form submission:\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone || "N/A"}\nCase Type: ${caseType || "N/A"}\n\nMessage:\n${message}\n`;
 }
 function isValidEmail(value) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -270,25 +270,25 @@ function hasEmailConfig() {
 }
 async function GET(request) {
     const url = new URL(request.url);
-    const pathname = url.pathname.replace('/api', '');
-    if (pathname === '/' || pathname === '') {
+    const pathname = url.pathname.replace("/api", "");
+    if (pathname === "/" || pathname === "") {
         return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
-            message: 'Law Professional Website API is running',
-            status: 'healthy'
+            message: "Law Professional Website API is running",
+            status: "healthy"
         });
     }
-    if (pathname === '/blogs') {
+    if (pathname === "/blogs") {
         return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
             success: true,
             blogs: __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$blogData$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"]
         });
     }
-    if (pathname.startsWith('/blogs/')) {
-        const slug = pathname.replace('/blogs/', '');
+    if (pathname.startsWith("/blogs/")) {
+        const slug = pathname.replace("/blogs/", "");
         const blog = __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$blogData$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"].find((item)=>item.slug === slug);
         if (!blog) {
             return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
-                error: 'Blog post not found'
+                error: "Blog post not found"
             }, {
                 status: 404
             });
@@ -298,30 +298,30 @@ async function GET(request) {
             blog
         });
     }
-    if (pathname === '/download-code') {
+    if (pathname === "/download-code") {
         try {
-            const archive = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$archiver$2f$index$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"])('zip', {
+            const archive = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$archiver$2f$index$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"])("zip", {
                 zlib: {
                     level: 9
                 }
             });
             const chunks = [];
-            archive.on('data', (chunk)=>chunks.push(chunk));
-            archive.on('error', (err)=>{
+            archive.on("data", (chunk)=>chunks.push(chunk));
+            archive.on("error", (err)=>{
                 throw err;
             });
             const appDir = __TURBOPACK__imported__module__$5b$externals$5d2f$path__$5b$external$5d$__$28$path$2c$__cjs$29$__["default"].join(process.cwd());
             const filesToInclude = [
-                'app',
-                'components',
-                'lib',
-                'public',
-                'package.json',
-                'tailwind.config.js',
-                'postcss.config.js',
-                'next.config.js',
-                '.env.example',
-                'README.md'
+                "app",
+                "components",
+                "lib",
+                "public",
+                "package.json",
+                "tailwind.config.js",
+                "postcss.config.js",
+                "next.config.js",
+                ".env.example",
+                "README.md"
             ];
             for (const item of filesToInclude){
                 const itemPath = __TURBOPACK__imported__module__$5b$externals$5d2f$path__$5b$external$5d$__$28$path$2c$__cjs$29$__["default"].join(appDir, item);
@@ -336,69 +336,69 @@ async function GET(request) {
                     }
                 }
             }
-            const envPath = __TURBOPACK__imported__module__$5b$externals$5d2f$path__$5b$external$5d$__$28$path$2c$__cjs$29$__["default"].join(appDir, '.env');
+            const envPath = __TURBOPACK__imported__module__$5b$externals$5d2f$path__$5b$external$5d$__$28$path$2c$__cjs$29$__["default"].join(appDir, ".env");
             if (__TURBOPACK__imported__module__$5b$externals$5d2f$fs__$5b$external$5d$__$28$fs$2c$__cjs$29$__["default"].existsSync(envPath)) {
-                const envContent = __TURBOPACK__imported__module__$5b$externals$5d2f$fs__$5b$external$5d$__$28$fs$2c$__cjs$29$__["default"].readFileSync(envPath, 'utf-8');
-                const envExample = envContent.split('\n').map((line)=>{
-                    if (line.includes('=')) {
-                        const [key] = line.split('=');
+                const envContent = __TURBOPACK__imported__module__$5b$externals$5d2f$fs__$5b$external$5d$__$28$fs$2c$__cjs$29$__["default"].readFileSync(envPath, "utf-8");
+                const envExample = envContent.split("\n").map((line)=>{
+                    if (line.includes("=")) {
+                        const [key] = line.split("=");
                         return `${key}=`;
                     }
                     return line;
-                }).join('\n');
+                }).join("\n");
                 archive.append(envExample, {
-                    name: '.env.example'
+                    name: ".env.example"
                 });
             }
             await archive.finalize();
             const buffer = Buffer.concat(chunks);
             return new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"](buffer, {
                 headers: {
-                    'Content-Type': 'application/zip',
-                    'Content-Disposition': 'attachment; filename=law-website-code.zip',
-                    'Content-Length': buffer.length.toString()
+                    "Content-Type": "application/zip",
+                    "Content-Disposition": "attachment; filename=law-website-code.zip",
+                    "Content-Length": buffer.length.toString()
                 }
             });
         } catch (error) {
-            console.error('Error creating ZIP:', error);
+            console.error("Error creating ZIP:", error);
             return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
-                error: 'Failed to create ZIP file'
+                error: "Failed to create ZIP file"
             }, {
                 status: 500
             });
         }
     }
     return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
-        error: 'Endpoint not found'
+        error: "Endpoint not found"
     }, {
         status: 404
     });
 }
 async function POST(request) {
     const url = new URL(request.url);
-    const pathname = url.pathname.replace('/api', '');
-    if (pathname === '/contact') {
+    const pathname = url.pathname.replace("/api", "");
+    if (pathname === "/contact") {
         try {
             const body = await request.json();
             const { name, email, phone, message, caseType } = body;
             if (!name || !email || !message) {
                 return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
-                    error: 'Name, email, and message are required'
+                    error: "Name, email, and message are required"
                 }, {
                     status: 400
                 });
             }
             if (!isValidEmail(email)) {
                 return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
-                    error: 'Invalid email address'
+                    error: "Invalid email address"
                 }, {
                     status: 400
                 });
             }
             if (!hasEmailConfig()) {
-                console.error('Missing email SMTP configuration. Set EMAIL_HOST/EMAIL_USER/EMAIL_PASS in env.');
+                console.error("Missing email SMTP configuration. Set EMAIL_HOST/EMAIL_USER/EMAIL_PASS in env.");
                 return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
-                    error: 'Email service not configured'
+                    error: "Email service not configured"
                 }, {
                     status: 500
                 });
@@ -406,7 +406,7 @@ async function POST(request) {
             const transporter = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$nodemailer$2f$lib$2f$nodemailer$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"].createTransport({
                 host: process.env.EMAIL_HOST,
                 port: Number(process.env.EMAIL_PORT || 587),
-                secure: process.env.EMAIL_SECURE === 'true',
+                secure: process.env.EMAIL_SECURE === "true",
                 auth: {
                     user: process.env.EMAIL_USER,
                     pass: process.env.EMAIL_PASS
@@ -417,7 +417,7 @@ async function POST(request) {
             const mailPayload = {
                 from: serverEmail,
                 to: contactRecipient,
-                subject: `New Contact Form Submission: ${name}`,
+                subject: `MV & Associates Got an Inquiry From: ${name}`,
                 text: getMimeText({
                     name,
                     email,
@@ -425,39 +425,45 @@ async function POST(request) {
                     message,
                     caseType
                 }),
-                html: `<h2>New contact form submission</h2>\n<p><strong>Name:</strong> ${name}</p>\n<p><strong>Email:</strong> ${email}</p>\n<p><strong>Phone:</strong> ${phone || 'N/A'}</p>\n<p><strong>Case Type:</strong> ${caseType || 'N/A'}</p>\n<p><strong>Message:</strong></p>\n<p>${message.replace(/\n/g, '<br/>')}</p>`
+                html: `<h2>New Inquiry Form Submission</h2>
+         <p><strong>Name:</strong> ${name}</p>
+         <p><strong>Email:</strong> ${email}</p>
+         <p><strong>Phone:</strong> ${phone || "N/A"}</p>
+         <p><strong>Case Type:</strong> ${caseType || "N/A"}</p>
+         <p><strong>Message:</strong></p>
+         <p>${message.replace(/\n/g, "<br/>")}</p>`
             };
             const info = await transporter.sendMail(mailPayload);
             return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
                 success: true,
-                message: 'Contact form submitted successfully',
+                message: "Contact form submitted successfully",
                 mailInfo: info
             });
         } catch (error) {
-            console.error('Error submitting contact form:', error);
+            console.error("Error submitting contact form:", error);
             return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
-                error: 'Failed to submit contact form'
+                error: "Failed to submit contact form"
             }, {
                 status: 500
             });
         }
     }
     return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
-        error: 'Endpoint not found'
+        error: "Endpoint not found"
     }, {
         status: 404
     });
 }
 async function PUT(request) {
     return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
-        error: 'Endpoint not found'
+        error: "Endpoint not found"
     }, {
         status: 404
     });
 }
 async function DELETE(request) {
     return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
-        error: 'Endpoint not found'
+        error: "Endpoint not found"
     }, {
         status: 404
     });

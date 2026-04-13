@@ -248,7 +248,8 @@ const App = () => {
               Range Of Services
             </h2>
             <p className="text-lg text-muted-foreground">
-              Comprehensive legal services across multiple range Of services to meet your needs
+              Comprehensive legal services across multiple range Of services to
+              meet your needs
             </p>
           </div>
 
@@ -449,19 +450,37 @@ const App = () => {
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                    <span>DUI/DWI defense</span>
+                    <span>Legal Advice & Consultation</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                    <span>White collar crimes</span>
+                    <span>Bail & Pre-Trial Services</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                    <span>Drug offenses</span>
+                    <span>Case Preparation</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                    <span>Assault and battery</span>
+                    <span>Court Representation</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                    <span>Appeals & Post-Conviction Remedies</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                    <span>Cybercrime defence</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                    <span>Juvenile justice cases</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                    <span>
+                      Handling cases under special laws (NDPS, POCSO, etc.)
+                    </span>
                   </li>
                 </ul>
               </CardContent>
@@ -516,20 +535,20 @@ const App = () => {
 
           <div className="max-w-5xl mx-auto px-4 ">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 ">
-              {/* Card 1 */}
-              <Card className="w-full max-w-md mx-auto rounded-xl shadow-md hover:shadow-lg transition">
-                <CardContent className="p-6 flex items-center justify-center text-center">
-                  <h3 className="text-base sm:text-lg font-semibold leading-tight">
-                    Vijaishree Tiwari
-                  </h3>
-                </CardContent>
-              </Card>
-
               {/* Card 2 */}
               <Card className="w-full max-w-md mx-auto rounded-xl shadow-md hover:shadow-lg transition ">
                 <CardContent className="p-6 flex items-center justify-center text-center ">
                   <h3 className="text-base sm:text-lg font-semibold leading-tight">
                     Meher Parihar
+                  </h3>
+                </CardContent>
+              </Card>
+
+              {/* Card 1 */}
+              <Card className="w-full max-w-md mx-auto rounded-xl shadow-md hover:shadow-lg transition">
+                <CardContent className="p-6 flex items-center justify-center text-center">
+                  <h3 className="text-base sm:text-lg font-semibold leading-tight">
+                    Vijaishree Tiwari
                   </h3>
                 </CardContent>
               </Card>
@@ -588,7 +607,8 @@ const App = () => {
                       <div className="font-medium">Office Address</div>
                       <div className="text-muted-foreground">
                         {" "}
-                        323 B - Rajul landmark, Napier Town, Jabalpur, Madhya Pradesh, 482001
+                        323 B - Rajul landmark, Napier Town, Jabalpur, Madhya
+                        Pradesh, 482001
                       </div>
                     </div>
                   </div>
@@ -782,7 +802,8 @@ const App = () => {
                 <li>Phone no. : +91 8602184060</li>
                 <li>Email : mv.associates.legal@gmail.com</li>
                 <li>
-                  Address : 323 B - Rajul landmark, Napier Town, Jabalpur, Madhya Pradesh, 482001
+                  Address : 323 B - Rajul landmark, Napier Town, Jabalpur,
+                  Madhya Pradesh, 482001
                 </li>
               </ul>
             </div>
