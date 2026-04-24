@@ -498,7 +498,7 @@ const App = () => {
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                    <span>Corporate and fraud investigations</span>
+                    <span>Corporate and fraud check</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
@@ -514,7 +514,7 @@ const App = () => {
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                    <span>Matrimonial and cyber investigations</span>
+                    <span>Matrimonial and cyber check</span>
                   </li>
                 </ul>
               </CardContent>
